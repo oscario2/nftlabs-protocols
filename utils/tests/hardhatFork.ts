@@ -1,5 +1,6 @@
 // from: https://github.com/ethereumvex/SushiMaker-bridge-exploit/blob/master/utils/utils.js
 import hre from "hardhat";
+import { getMoralisUrl } from "../../moralis.config";
 import { chainIds } from "../chainIds";
 
 const ethers = hre.ethers;
@@ -7,20 +8,14 @@ require("dotenv").config();
 
 const defaultForkBlock = 9414004; // randomly set
 
+let latest = 0;
 export const forkFrom = async (network: keyof typeof chainIds) => {
-  let alchemyKey: string = process.env.ALCHEMY_KEY || "";
-
-  let nodeUrl: string =
-    chainIds[network] == 137 || chainIds[network] == 80001
-      ? `https://polygon-${network}.g.alchemy.com/v2/${alchemyKey}`
-      : `https://eth-${network}.alchemyapi.io/v2/${alchemyKey}`;
-
   await hre.network.provider.request({
     method: "hardhat_reset",
     params: [
       {
         forking: {
-          jsonRpcUrl: nodeUrl,
+          jsonRpcUrl: getMoralisUrl(network) + "/archive",
           blockNumber: defaultForkBlock,
         },
       },

@@ -86,7 +86,7 @@
     "verify-forwarder": "hardhat run tasks/verify/forwarder.ts",
     "prettier": "prettier --config .prettierrc --write \"**/*.{js,json,sol,ts}\"",
     "prettier:list-different": "prettier --config .prettierrc --list-different \"**/*.{js,json,sol,ts}\"",
-    "test": "hardhat test",
+    "test": "export SET NODE_OPTIONS=--openssl-legacy-provider && hardhat test",
     "typechain": "hardhat typechain",
     "build": "yarn clean && yarn compile && yarn typechain && yarn build:lib",
     "build:lib": "tsdx build --entry typechain/index.ts",
