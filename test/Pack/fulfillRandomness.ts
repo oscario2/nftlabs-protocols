@@ -204,6 +204,7 @@ describe("VRF fulfills a randomness request", function () {
 
   describe("Balances", function () {
     beforeEach(async () => {
+      this.timeout(0);
       await pack.connect(vrf).rawFulfillRandomness(requestId, randomNumber);
     });
 
