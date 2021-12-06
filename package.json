@@ -87,6 +87,7 @@
     "prettier": "prettier --config .prettierrc --write \"**/*.{js,json,sol,ts}\"",
     "prettier:list-different": "prettier --config .prettierrc --list-different \"**/*.{js,json,sol,ts}\"",
     "test": "export SET NODE_OPTIONS=--openssl-legacy-provider && hardhat test",
+    "test-ci": "hardhat test",
     "typechain": "hardhat typechain",
     "build": "yarn clean && yarn compile && yarn typechain && yarn build:lib",
     "build:lib": "tsdx build --entry typechain/index.ts",

@@ -5,8 +5,8 @@ name: Hardhat Tests
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  pull_request:
-    branches: [ main ]
+  push:
+    branches: [ main, workflow-test ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -34,7 +34,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run test
         env:
-          ALCHEMY_KEY: ${{ secrets.ALCHEMY_KEY }}
-          REPORT_GAS: true
-          REPORT_GAS_COINMARKETCAP_API_KEY: ${{ secrets.REPORT_GAS_COINMARKETCAP_API_KEY }}
-        run: yarn test
+          MORALIS_NODE_KEY: ${{ secrets.MORALIS_NODE_KEY }}
+          REPORT_GAS: false
+        run: yarn test-ci
