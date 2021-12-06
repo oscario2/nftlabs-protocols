@@ -1,5 +1,7 @@
 # NFTLabs Protocol
 
+[![Hardhat Tests](https://github.com/oscario2/nftlabs-protocols/actions/workflows/hardhat_test.yml/badge.svg)](https://github.com/oscario2/nftlabs-protocols/actions/workflows/hardhat_test.yml)
+
 NFTLabs lets anyone create and sell packs filled with rewards. A pack can be opened only once. On opening a pack, a reward
 from the pack is distributed to the pack opener.
 
